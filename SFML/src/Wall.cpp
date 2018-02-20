@@ -1,6 +1,5 @@
 #include "Wall.hpp"
 
-#include <algorithm>
 #include <iostream>
 
 Wall::Wall() : nrWalls(36)
