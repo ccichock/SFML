@@ -34,7 +34,7 @@ public:
 	CircleShape& getBall();
 
 	void move(Pad& pad);
-	void checkWallColision(Wall& wallref);
+	bool checkWallColision(Wall& wallref);
 
 private:
 
@@ -42,7 +42,12 @@ private:
 	bool hitRightWallEdge(const Squere& wall);
 	bool hitUpWallEdge(const Squere& wall);
 	bool hitDownWallEdge(const Squere& wall);
-
+	
+	bool hitLeftPadEdge(Pad&padref);
+	bool hitRightPadEdge(Pad&padref);
+	bool hitUpPadEdge(Pad&padref);
+	bool hitDownPadEdge(Pad&padref);
+	
 	bool hitBottomEdge();
 	bool hitLeftOrRightEdge();
 	bool hitTopEdge();
@@ -76,11 +81,8 @@ inline void Ball::move(Pad& pad)
 inline bool Ball::hitBottomEdge() { return yAxisMove - 2 * radius < -600; }
 inline bool Ball::hitLeftOrRightEdge() { return xAxisMove + xBallSpeed > 0 || xAxisMove + xBallSpeed - 2 * radius < -800; }
 inline bool Ball::hitTopEdge() { return  yAxisMove + yBallSpeed > 0; }
-inline bool Ball::hitPad(Pad& pad)
-{
-	return yAxisMove + 2 * yBallSpeed - 2 * radius < pad.yPos() && yAxisMove - pad.getHeight() > pad.yPos() &&
- 		xAxisMove - 1.5 * radius < pad.xPos() && xAxisMove + 0.5 * radius > pad.xPos() - pad.getWidth();
-}
+bool hitPad(Pad& pad);
+
 
 #endif
 

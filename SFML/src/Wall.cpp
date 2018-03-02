@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+
 Wall::Wall() : nrWalls(36)
 {
 	xStart = -100;
@@ -13,6 +14,7 @@ Wall::Wall() : nrWalls(36)
 	nrObject = 1;
 }
 
+
 void Wall::createWalls()
 {
 	int x = xStart;
@@ -21,6 +23,7 @@ void Wall::createWalls()
 	for(int wallIndex = 0; wallIndex < nrWalls; wallIndex++)
 	{
 		Squere wall(x, y);
+	//	std::cout << random <<' ';
 		this->setPosition(wall, x, y);
 		wallContainer.push_back(wall);
 	}

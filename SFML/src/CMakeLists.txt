@@ -6,6 +6,7 @@ set(SOURCE_FILES
 	EventManager.cpp
 	Wall.cpp
 	FrameHandler.cpp
+	RedSquare.cpp
 )
 
 project(pad)

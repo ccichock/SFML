@@ -25,7 +25,7 @@ public:
 
 	void move(int speed)
 	{
-		if(x + speed < 0 && x + speed > -800 + width) x += speed;
+		if(x + speed < 0 && x + speed > -800 + width) x += 2*speed;
 		pad.setOrigin(x, y);
 	}
 
@@ -35,6 +35,32 @@ public:
 	int yPos() { return y; }
 	int getWidth() { return width; }
 	int getHeight() { return height; }
+	
+	void addLeftWidth(int deltaWidth_)
+	{
+		width += deltaWidth_;
+		pad.setSize(Vector2f(width,height));
+	}
+	
+		void addRightWidth(int deltaWidth_)
+	{
+		width += deltaWidth_;
+		pad.setSize(Vector2f(width,height));
+		pad.setOrigin(x+20,y);
+	}
+	
+	void deleteWidth(int deltaWidth_)
+	{
+			width -= deltaWidth_;
+		pad.setSize(Vector2f(width,height));
+	}
+	
+	void setNormalWidth(int width_)
+	{
+		width = width_;
+		pad.setSize(Vector2f(width,height));
+	}
+	
 
 	~Pad();
 };
